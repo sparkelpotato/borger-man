@@ -11,6 +11,7 @@ public class John extends Enemy
     public John(){
         speed = 7;
         damage = 6;
+        health = 10;
     }
     
     /**

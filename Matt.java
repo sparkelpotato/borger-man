@@ -10,7 +10,8 @@ public class Matt extends Enemy
 {
     public Matt(){
         speed = 2;
-        damage = 4;
+        damage = 3;
+        health = 20;
     }
     /**
      * Act - do whatever the Matt wants to do. This method is called whenever

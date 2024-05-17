@@ -15,6 +15,7 @@ public class Joe extends Enemy
     public Joe(){
         speed = 3;
         damage = 2;
+        health = 5;
     }
     
     /**

@@ -8,12 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    private static final int[] enemyOrder = {3,3,3,1,3,2,1,1,3,3,2,2,1,2,1,3,2};
     private static final int ENEMIES_PER_LEVEL = 5;
+    private static final int MAX_SPEED = 45;
+    private static final int ENDLESS_SPEED = 90; // speed for endless mode
     private int currentLevel;
     private int nextEnemy;
     private int spawnTimer;
     private int spawnSpeed;
+    private boolean endless;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -29,31 +31,62 @@ public class MyWorld extends World
         Ground g = new Ground(getWidth());
         addObject(g, getWidth()/2, getHeight()-g.getImage().getHeight()/2);
         Player p = new Player();
-        addObject(p, getWidth()/2, getHeight()/2);
+        addObject(p, getWidth()/2, getHeight()-g.getImage().getHeight()-p.getImage().getHeight()/2);
         healthBar h = new healthBar(p);
         addObject(h, getWidth()/2, g.getY());
+        PowerUp pu = new PowerUp();
+        addObject(pu, getWidth()/2, getHeight()/2);
+        endless = false;
+    }
+    
+    public MyWorld(boolean isEndless){
+        this();
+        if(isEndless){
+            spawnSpeed = ENDLESS_SPEED;
+            endless = isEndless;
+        }
     }
     
     public void act(){
-        //last enemy has already spawned
-        
-        if(nextEnemy >= enemyOrder.length){
-            if(getObjects(Enemy.class).size() == 0){
-                //win goes here
+        if(getObjects(Player.class).size() == 0){
+            return;
+        }
+        if(endless){
+            endlessEnemies();
+        }
+        else{
+            spawnEnemies();
+        }
+    }
+    
+    private void endlessEnemies(){
+        spawnTimer--;
+        if(spawnTimer <= 0){
+            spawnEnemy(Greenfoot.getRandomNumber(3)+1);
+            nextEnemy++;
+            spawnTimer = spawnSpeed;
+        }
+    }
+    
+    private void spawnEnemies(){
+        if(spawnSpeed <= MAX_SPEED){
+            java.util.List enemies = getObjects(Enemy.class);
+            if(enemies.size() <= 0){
+                showText("You win", getWidth()/2, getHeight()/2);
             }
             return;
         }
         spawnTimer--;
         if(spawnTimer <= 0){
-            spawnEnemy(enemyOrder[nextEnemy]);
+            spawnEnemy(Greenfoot.getRandomNumber(3)+1);
             nextEnemy++;
             if(nextEnemy%ENEMIES_PER_LEVEL == 0){
-                spawnSpeed *= 5.0/6;
+                spawnSpeed *= 0.9;
             }
             spawnTimer = spawnSpeed;
         }
-        
     }
+    
     /**
      * Method spawnEnemy
      *

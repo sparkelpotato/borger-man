@@ -9,7 +9,6 @@ import greenfoot.GreenfootImage;
  */
 public class Ground extends Actor
 {
-    //I just exist
     public Ground(int width){
         GreenfootImage i = new GreenfootImage(width, 145);
         i.setColor(new Color(40,200,20));

@@ -22,7 +22,6 @@ public class healthBar extends Actor
      */
     public void act()
     {
-        //setLocation(getWorld().getWidth()/2, getY());
         setImage(makeHealthBar(player.getHealth()));
     }
     

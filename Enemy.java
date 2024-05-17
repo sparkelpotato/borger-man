@@ -18,6 +18,7 @@ public class Enemy extends Actor
     protected double deceleration = 0.2;
     protected int damage;
     protected int hitCooldown = 50;
+    protected int health = 10;
     
     protected void gravity(){
         dy += gravity;
@@ -47,6 +48,13 @@ public class Enemy extends Actor
         }
     }
 
+    public void hit(int damage){
+        health -= damage;
+        if(health <= 0){
+            getWorld().removeObject(this);
+        }
+    }
+    
     protected void moveToPlayer(){
        java.util.List<Player> players = getWorld().getObjects(Player.class);
         if(onGround && !players.isEmpty()){

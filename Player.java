@@ -8,19 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    private final double gravity = 0.7;
-    protected int speed = 5;
+    private static final double gravity = 0.7;
+    private static final int JUMP_SPEED = 15;
+    private int damage = 5;
+    private int speed = 5;
     private boolean onGround = false;
-    protected double acceleration = 0.2;
-    private final int JUMP_SPEED = 15;
+    private double acceleration = 0.2;
     private double dy;
     private double dx;
     private int health;
+    private boolean attacked;
+    
     
     public Player(){
         dy = 0;
         dx = 0;
         health = 100;
+        attacked = false;
     }
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -37,7 +41,9 @@ public class Player extends Actor
     public void hit(int damage){
         health -= damage;
         if(health <= 0){
-            Greenfoot.stop();
+            World world = getWorld();
+            world.removeObject(this);
+            world.showText("You lose", world.getWidth()/2, world.getHeight()/2);
         }
     }
     
@@ -59,6 +65,15 @@ public class Player extends Actor
         }
         if(Greenfoot.isKeyDown("up") && onGround){
             dy = -JUMP_SPEED;
+        }
+        if(Greenfoot.isKeyDown("space")){
+            if(!attacked){
+                attack();
+                attacked = true;
+            }
+        }
+        else{
+            attacked = false;
         }
         if(!moved && onGround){
             //decelerate
@@ -86,6 +101,15 @@ public class Player extends Actor
         }
     }
     
+    
+    private void attack(){
+        Enemy e = (Enemy)getOneIntersectingObject(Enemy.class);
+        if(e == null){
+            return;
+        }
+        e.hit(damage);
+    }
+    
     private void gravity(){
         dy += gravity;
         setLocation(getX(), getY()+(int)Math.ceil(dy));
@@ -98,5 +122,4 @@ public class Player extends Actor
             onGround = false;
         }
     }
-    
 }
