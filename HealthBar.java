@@ -6,12 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class healthBar extends Actor
+public class HealthBar extends Actor
 {
     private static final int HEIGHT = 5;
     private static final int BUFFER = 20;
     private Player player;
-    public healthBar(Player player){
+    public HealthBar(Player player){
         this.player = player;
         setImage(new GreenfootImage(1,1));
     }

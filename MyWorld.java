@@ -32,7 +32,7 @@ public class MyWorld extends World
         addObject(g, getWidth()/2, getHeight()-g.getImage().getHeight()/2);
         Player p = new Player();
         addObject(p, getWidth()/2, getHeight()-g.getImage().getHeight()-p.getImage().getHeight()/2);
-        healthBar h = new healthBar(p);
+        HealthBar h = new HealthBar(p);
         addObject(h, getWidth()/2, g.getY());
         PowerUp pu = new PowerUp();
         addObject(pu, getWidth()/2, getHeight()/2);
