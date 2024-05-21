@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     private static final int ENEMIES_PER_LEVEL = 5;
-    private static final int MAX_SPEED = 45;
-    private static final int ENDLESS_SPEED = 90; // speed for endless mode
+    private static final int MAX_SPEED = 35;
+    private static final int ENDLESS_SPEED = 57; // speed for endless mode
     private int currentLevel;
     private int nextEnemy;
     private int spawnTimer;

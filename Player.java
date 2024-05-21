@@ -17,14 +17,12 @@ public class Player extends Actor
     private double dy;
     private double dx;
     private int health;
-    private boolean attacked;
     
     
     public Player(){
         dy = 0;
         dx = 0;
         health = 100;
-        attacked = false;
     }
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -66,14 +64,8 @@ public class Player extends Actor
         if(Greenfoot.isKeyDown("up") && onGround){
             dy = -JUMP_SPEED;
         }
-        if(Greenfoot.isKeyDown("space")){
-            if(!attacked){
-                attack();
-                attacked = true;
-            }
-        }
-        else{
-            attacked = false;
+        if(Greenfoot.mousePressed(null)){
+            attack();
         }
         if(!moved && onGround){
             //decelerate
