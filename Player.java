@@ -51,17 +51,17 @@ public class Player extends Actor
     
     private void checkControls(){
         boolean moved = false;
-        if(Greenfoot.isKeyDown("left")){
+        if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")){
             dx -= acceleration; //accelerate left
             dx = Math.max(-speed, dx); //limit the speed
             moved = true;
         }
-        if(Greenfoot.isKeyDown("right")){
+        if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")){
             dx += acceleration; //accelerate right
             dx = Math.min(speed, dx); //limit the speed
             moved = true;
         }
-        if(Greenfoot.isKeyDown("up") && onGround){
+        if((Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")) && onGround){
             dy = -JUMP_SPEED;
         }
         if(Greenfoot.mousePressed(null)){
