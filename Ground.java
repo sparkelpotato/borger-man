@@ -4,8 +4,8 @@ import greenfoot.GreenfootImage;
 /**
  * Write a description of class Ground here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Ryan 
+ * @version 1.1
  */
 public class Ground extends Actor
 {

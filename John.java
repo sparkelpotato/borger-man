@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class John here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Ryan 
+ * @version 1.1
  */
 public class John extends Enemy
 {
