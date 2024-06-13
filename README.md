@@ -1,4 +1,4 @@
-# greenfoot-game
+# borger-man
 
 This is the final project for computer science.
 ### How to play:
