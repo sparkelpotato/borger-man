@@ -1,6 +1,6 @@
 # borger-man
 
-This is the final project for computer science.
+This is the final project for computer science and was written for [greenfoot](https://www.greenfoot.org/download).
 ### How to play:
 Your goal is to kill all of the enemies that spawn
 
