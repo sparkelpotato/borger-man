@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
-    private final double gravity = 0.5;
+    private static final double gravity = 0.5;
     private double dy = 0;
     private double dx = 0;
     private int hitCounter = 0;
