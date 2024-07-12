@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Enemy here.
+ * Handles general enemy things like attacking and movement
  * 
  * @author Ryan 
  * @version 1.1
@@ -39,7 +39,6 @@ public class Enemy extends Actor
             return;
         }
         else{
-            //getWorld().removeObject(p);
             hitCounter++;
             if(hitCounter >= hitCooldown){
                 hitCounter = 0;
@@ -48,6 +47,7 @@ public class Enemy extends Actor
         }
     }
 
+    //The enemy gets hit
     public void hit(int damage){
         health -= damage;
         if(health <= 0){
@@ -91,7 +91,6 @@ public class Enemy extends Actor
                 dx = 0;
             }
         }
-        //if(onGround)
         setLocation(getX()+(int)dx, getY());
     }
 }

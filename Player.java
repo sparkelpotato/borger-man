@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player here.
+ * YOU, the player. Lets you move and hit the enemies
  * 
  * @author Ryan 
  * @version 1.1
@@ -24,13 +24,9 @@ public class Player extends Actor
         dx = 0;
         health = 100;
     }
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public void act()
     {
-        // Add your action code here.        
         gravity();
         checkControls();
         checkPowerUp();

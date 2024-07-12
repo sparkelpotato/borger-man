@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * The main world, which spawns the player and periodically spawns enemies.
  * 
  * @author Ryan 
  * @version 1.1
@@ -16,10 +16,8 @@ public class MyWorld extends World
     private int spawnTimer;
     private int spawnSpeed;
     private boolean endless;
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
+
+
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

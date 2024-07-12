@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class healthBar here.
+ * Draws a healthbar for the player.
  * 
  * @author Ryan 
  * @version 1.1
@@ -16,10 +16,6 @@ public class HealthBar extends Actor
         setImage(new GreenfootImage(1,1));
     }
     
-    /**
-     * Act - do whatever the healthBar wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
         setImage(makeHealthBar(player.getHealth()));

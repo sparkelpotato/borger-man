@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PowerUp here.
+ * powerup for player to gain full health, no code here tho
  * 
  * @author Ryan 
  * @version 1.1
